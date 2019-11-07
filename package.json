@@ -1,0 +1,59 @@
+{
+  "name": "pkgchk",
+  "description": "organization-wide package usage comparison",
+  "version": "0.0.0",
+  "author": "Eli Dupuis @elidupuis",
+  "bin": {
+    "pkgchk": "./bin/run"
+  },
+  "bugs": "https://github.com/elidupuis/pkgchk/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "@octokit/rest": "^16.34.1",
+    "@types/js-base64": "^2.3.1",
+    "chalk": "^2.4.2",
+    "cli-ux": "^5.3.3",
+    "debug": "^4.1.1",
+    "js-base64": "^2.5.1",
+    "package-info": "^3.0.2",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/test": "^1",
+    "@oclif/tslint": "^3",
+    "@types/chai": "^4",
+    "@types/mocha": "^5",
+    "@types/node": "^10",
+    "chai": "^4",
+    "mocha": "^5",
+    "nyc": "^14",
+    "ts-node": "^8",
+    "tslint": "^5",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/elidupuis/pkgchk",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "bin": "pkgchk"
+  },
+  "repository": "elidupuis/pkgchk",
+  "scripts": {
+    "posttest": "tslint -p test -t stylish",
+    "prepack": "rm -rf lib && tsc -b",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\""
+  },
+  "types": "lib/index.d.ts"
+}
