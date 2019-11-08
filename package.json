@@ -1,7 +1,7 @@
 {
   "name": "pkgchk",
   "description": "organization-wide package usage comparison",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Eli Dupuis @elidupuis",
   "bin": {
     "pkgchk": "./bin/run"
