@@ -53,7 +53,6 @@ const GHPackageSearch = async ({
     }
   } catch (e) {
     throw new Error(e);
-    // this.log(`${path} not found for ${repo}`);
   }
 
   return null;

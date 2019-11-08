@@ -18,12 +18,14 @@ class Pkgchk extends Command {
       char: "t",
       description:
         "Github access token. Defaults to GITHUB_TOKEN environment variable.",
-      env: "GITHUB_TOKEN"
+      env: "GITHUB_TOKEN",
+      required: true
     }),
     org: flags.string({
       char: "o",
       description: "Github organization to search.",
-      default: "showbie"
+      env: "PKGCHK_ORG",
+      required: true
     })
   };
 
@@ -77,6 +79,7 @@ class Pkgchk extends Command {
     name: string
   ): Promise<object[]> {
     if (!token) return this.error(new Error("Github `token` is undefined"));
+    if (!org) return this.error(new Error("Github `organization` is undefined"));
 
     const owner = org;
     const octokit = new Octokit({

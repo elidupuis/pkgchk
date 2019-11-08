@@ -16,9 +16,32 @@ This is a command line tool that will search an entire Github organization for a
 # Usage
 <!-- usage -->
 
-```
+First, you'll need a Github access token. Any token that works with the [Github REST API](https://developer.github.com/v3/#authentication) will do. You can start with a simple [personal access token](https://github.com/settings/tokens/new).
+
+```shell
+npm install -g pkgchk
 pkgchk --help
-pkgchk ember-source -o showbie
-DEBUG=* pkgchk ember-cli -o showbie
-DEBUG=* pkgchk ember-cli -o aota
 ```
+
+Pass this access token in via the `token` flag or the `GITHUB_TOKEN` environment variable.
+
+```shell
+pkgchk [PACKAGE_NAME] -o [ORG_NAME] -t [ACCESS_TOKEN]
+GITHUB_TOKEN=[ACCESS_TOKEN] pkgchk [PACKAGE_NAME] -o [ORG_NAME]
+PKGCHK_ORG=[ORG_NAME] pkgchk [PACKAGE_NAME] -t [ACCESS_TOKEN]
+```
+
+## Examples
+
+```shell
+pkgchk ember-source -o showbie
+pkgchk ember-source -o emberjs
+DEBUG=* pkgchk ember-source -o intercom
+DEBUG=* pkgchk ember-data -o simplabs
+```
+
+# Future Development
+
+- cache responses from Github API
+- support for npm/yarn lockfiles
+- support other tech stacks and package managers
